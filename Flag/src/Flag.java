@@ -1,0 +1,74 @@
+// Flag starter kit
+
+/*
+ * Alex Gao
+ * Ethan Houston
+ * Ethan Shaotran
+ */
+
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+
+import javax.swing.JApplet;
+
+public class Flag extends JApplet {
+	private final int STRIPES = 13;
+
+	// SCALE FACTORS (A through L)
+	//
+	// Note: Constants in Java should always be ALL_CAPS, even
+	// if we are using single letters to represent them
+
+	public final double A = 1.0;  // Hoist (width) of flag
+	public final double B = 1.9;  // Fly (length) of flag
+	public final double C = 0.5385;  // Hoist of Union
+	public final double D = 0.76;  // Fly of Union
+	public final double E = 0.054;  // See flag specification
+	public final double F = 0.054;  // See flag specification
+	public final double G = 0.063;  // See flag specification
+	public final double H = 0.063;  // See flag specification
+	public final double K = 0.0616;  // Diameter of star
+	public final double L = 0.0769;  // Width of stripe
+	public int width;           // width of flag in pixels
+	public int height;          // height of flag in pixels
+	public int stripe_height;   // height of an individual stripe in pixels
+	
+	
+	
+//	public void makeGraphics() {
+//		Graphics g = new Graphics(0,0,460,760);
+//	}
+	
+	public void init() {
+		// Choice of width = 1.9 * height to start off
+		// Gets ratio of FLY : HOIST
+		setSize(760, 400);
+		repaint();
+	}
+
+	public void paint(Graphics g) {
+		width = getWidth();
+		height = getHeight();
+		drawBackground(g);
+		drawStripes(g);
+		drawField(g);
+		drawStars(g);  
+	}
+
+	private void drawBackground(Graphics g) {
+		g.setColor(Color.black);
+		g.fillRect(0, 0, width, height);
+	}
+	
+	public void drawStripes(Graphics g) {
+		Stripes stripe = new Stripes();
+		stripe.drawStripe(g);
+	}
+
+	public void drawField(Graphics g) {
+	}
+
+	public void drawStars(Graphics g) {
+	}
+}
