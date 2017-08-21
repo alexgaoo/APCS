@@ -47,5 +47,12 @@ public class Star extends Flag {
 		
 	}
 	
+	public int calcStar(double i, double j) {
+		
+		
+		
+		r
+	}
+	
 	
 }
