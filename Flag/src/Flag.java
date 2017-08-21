@@ -51,9 +51,9 @@ public class Flag extends JApplet {
 		width = getWidth();
 		height = getHeight();
 		drawBackground(g);
-		drawStripes(g);
-		drawField(g);
-		drawStars(g);  
+		drawStripes(g, width, height);
+		drawField(g, width, height);
+		drawStars(g, width, height);  
 	}
 
 	private void drawBackground(Graphics g) {
@@ -61,18 +61,30 @@ public class Flag extends JApplet {
 		g.fillRect(0, 0, width, height);
 	}
 	
-	public void drawStripes(Graphics g) {
+	public void drawStripes(Graphics g, int width, int height) {
 		Stripes stripe = new Stripes();
 		
 		for(int i=1; i<=13; i++) {
-			stripe.drawStripe(g, i);
+			stripe.drawStripe(g, i, width, height);
 		}
 		
 	}
 
-	public void drawField(Graphics g) {
+	public void drawField(Graphics g, int width, int height) {
+		
+		
+		Field field = new Field();
+		
+		field.drawUnion(g, width, height);
+		
+		
 	}
 
-	public void drawStars(Graphics g) {
+	public void drawStars(Graphics g, int width, int height) {
+		
+		Star star = new Star();
+		
+		star.drawStar(g, width, height);
+		
 	}
 }
