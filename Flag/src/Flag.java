@@ -63,7 +63,11 @@ public class Flag extends JApplet {
 	
 	public void drawStripes(Graphics g) {
 		Stripes stripe = new Stripes();
-		stripe.drawStripe(g);
+		
+		for(int i=1; i<=13; i++) {
+			stripe.drawStripe(g, i);
+		}
+		
 	}
 
 	public void drawField(Graphics g) {
