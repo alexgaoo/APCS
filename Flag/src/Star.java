@@ -20,9 +20,13 @@ public class Star extends Flag {
 				int starY = (int) (((7./13.) * h) * j)/10;
 				
 				if((i % 2 == 1 && j % 2 == 1) || (i % 2 == 0 && j % 2 == 0)) {
-					g.fillRect((int) starX,(int) starY, 3, 3);
-					//Change function below to 10 points
+					//g.fillRect((int) starX,(int) starY, 3, 3);
 					
+					//System.out.println("X: " + starX + "\nY: " + starY + "\n---");
+					
+					System.out.println(((1/Math.tan(18*Math.PI/180)) * 0.00952));
+					
+					System.out.println((0.0308 * Math.cos(18.0*Math.PI/180)));
 					
 					/*
 					 * https://stackoverflow.com/questions/15620590/polygons-with-double-coordinates
@@ -32,13 +36,8 @@ public class Star extends Flag {
 					
 					
 					
-					// Output from this is interesting, somethign is going wrong even with the tests
-				
-					System.out.println("Star X: " + starX + "\nX coords" + Arrays.toString(calcStarX(starX)));
 					
-					System.out.println("Star Y: " + starY + "\nY coords" + Arrays.toString(calcStarY(starY)));
-					
-					g.fillPolygon(calcStarX(starX), calcStarY(starY), 5);
+					//g.fillPolygon(calcStarX(starX), calcStarY(starY), 5);
 					
 				}
 				
@@ -47,6 +46,21 @@ public class Star extends Flag {
 		}
 		
 	}
+	
+	public int[] newCalcStarX(int xPos) {
+		
+		
+		
+		return null;
+	}
+	
+	public int[] newCalcStarY(int yPos) {
+		
+		
+		
+		return null;
+	}
+	
 	
 	public int[] calcStarX(int i) {
 		
