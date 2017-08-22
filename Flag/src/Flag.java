@@ -71,17 +71,12 @@ public class Flag extends JApplet {
 	}
 
 	public void drawField(Graphics g, int width, int height) {
-		
-		
 		Field field = new Field();
 		
 		field.drawUnion(g, width, height);
-		
-		
 	}
 
 	public void drawStars(Graphics g, int width, int height) {
-		
 		Star star = new Star();
 		
 		star.drawStar(g, width, height);

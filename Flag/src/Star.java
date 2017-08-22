@@ -11,31 +11,17 @@ public class Star extends Flag {
 	public void drawStar(Graphics g, int w, int h) {
 		
 		g.setColor(Color.white);
-	
-//		int[] xArray = new int[50];
-//		int[] yArray = new int[50];
-		
-		int[] xPoints = new int[500];
-		int[] yPoints = new int[500];
 		
 		for(int i = 1; i < 12; i++) {
 			
 			for(int j = 1; j < 11; j++) {
-			
-				double starX = (((0.76/1.9) * w) * i)/12;
-				double starY = (((7./13.) * h) * j)/10;
+				int starX = (int) (((D/B) * w) * i)/12;
+				int starY = (int) (((7./13.) * h) * j)/10;
 				
 				if((i % 2 == 1 && j % 2 == 1) || (i % 2 == 0 && j % 2 == 0)) {
-					
 //					g.fillRect((int) starX,(int) starY, 3, 3);
-					
-//					xArray[i-1] = (int) starX;
-//					yArray[j-1] = (int) starY;
-					
-					
-					// set multiple indexes to values in calculated array
-					xPoints[i-1] = calcStarX(i);
-					yPoints[j-1] = calcStarY(j);
+					//Change function below to 10 points
+					g.fillPolygon(calcStarX(starX), calcStarY(starY), 5);
 					
 				}
 				
@@ -43,22 +29,58 @@ public class Star extends Flag {
 			
 		}
 		
-		g.fillPolygon(x,y,10);
-		
 	}
 	
-	public int[] calcStarX(double i) {
+	public int[] calcStarX(int i) {
 		
-		int[] x = new int[10];
+		//Change to 10 indices
+		int[] x = new int[5];
+		
+//		x[0] = (int) (K*Math.cos(18.0*Math.PI/180));
+//		x[1] = (int) (K*Math.sin(18.0*Math.PI/180)*Math.cos(54.0*Math.PI/180)/(Math.sin(54.0*Math.PI/180)));
+//		x[2] = (int) 0;
+//		x[3] = -x[2];
+//		x[4] = -x[1];
+		
+		//Test
+		x[0] = 0;
+		x[1] = 0;
+		x[2] = 1;
+		x[3] = 1;
+		x[4] = 1;
 		
 		
-		//Some Math here, 
+		//Change to 10 indices
+		for(int n = 0; n < 5; n++) {
+			x[n] += i;
+		}
+		System.out.println(x);
 		return x;
 	}
 	
-	public int[] calcStarY(double j) {
+	public int[] calcStarY(int j) {
 		
-		int[] y = new int[10];
+		//Change to 10 indices
+		int[] y = new int[5];
+		
+//		y[0] = (int) (K*Math.sin(18.0*Math.PI/180));
+//		y[1] = y[1];
+//		y[2] = (int) K;
+//		y[3] = y[1];
+//		y[4] = y[1];
+		
+		//Test
+		y[0] = 0;
+		y[1] = 1;
+		y[2] = 1;
+		y[3] = 0;
+		y[4] = -1;
+		
+		//Change to 10 indices
+		for(int n = 0; n < 5; n++) {
+			y[n] += j;
+		}
+		System.out.println(y);
 		
 		return y;
 				

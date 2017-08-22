@@ -13,7 +13,7 @@ public class Field extends Flag {
 		g.setColor(Color.blue);
 	
 		double unionHeight = h * (7./13.);
-		double unionWidth = w * (0.76/1.9);
+		double unionWidth = w * (D/B);
 		
 		g.fillRect(0, 0, (int) unionWidth, (int) unionHeight);
 		
