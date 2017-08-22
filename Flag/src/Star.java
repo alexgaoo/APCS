@@ -70,11 +70,6 @@ public class Star extends Flag {
 		double[] x = new double[5];
 		
 		x[0] = (radius * Math.cos(18.0*Math.PI/180));
-	
-
-//		x[1] = (int) (K*Math.sin(18.0*Math.PI/180)*Math.cos(54.0*Math.PI/180)/(Math.sin(54.0*Math.PI/180)));
-		//0.00952
-		
 		x[1] = ((1/Math.tan(18*Math.PI/180)) * 0.00952);
 		x[2] = 0;
 		x[3] = -x[1];
