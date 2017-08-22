@@ -24,6 +24,14 @@ public class Star extends Flag {
 					//Change function below to 10 points
 					
 					
+					/*
+					 * https://stackoverflow.com/questions/15620590/polygons-with-double-coordinates
+					 * 
+					 *  ^ Might have to do this
+					 */
+					
+					
+					
 					// Output from this is interesting, somethign is going wrong even with the tests
 				
 					System.out.println("Star X: " + starX + "\nX coords" + Arrays.toString(calcStarX(starX)));
@@ -54,20 +62,9 @@ public class Star extends Flag {
 		//0.00952
 		
 		x[1] = ((1/Math.tan(18*Math.PI/180)) * 0.00952);
-		
 		x[2] = 0;
 		x[3] = -x[1];
 		x[4] = -x[0];
-
-				
-		
-//		//Test
-//		x[0] = 0;
-//		x[1] = 0;
-//		x[2] = 1;
-//		x[3] = 1;
-//		x[4] = 1;
-//		
 		
 		//Change to 10 indices
 		for(int n = 0; n <= 4; n++) {
@@ -77,6 +74,8 @@ public class Star extends Flag {
 		
 		int[] finalArray = new int[5];
 		
+		
+		//Parsing double array as int.. runs into problems with rounding
 		for (int ii=0; ii<x.length; ii++)
 		    finalArray[ii] = (int) x[ii];
 		
