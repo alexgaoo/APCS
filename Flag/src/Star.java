@@ -20,12 +20,17 @@ public class Star extends Flag {
 				int starY = (int) (((7./13.) * h) * j)/10;
 				
 				if((i % 2 == 1 && j % 2 == 1) || (i % 2 == 0 && j % 2 == 0)) {
-//					g.fillRect((int) starX,(int) starY, 3, 3);
+					g.fillRect((int) starX,(int) starY, 3, 3);
 					//Change function below to 10 points
 					
-					System.out.println(Arrays.toString(calcStarX(starX)));
 					
-					//g.fillPolygon(calcStarX(starX), calcStarY(starY), 5);
+					// Output from this is interesting, somethign is going wrong even with the tests
+				
+					System.out.println("Star X: " + starX + "\nX coords" + Arrays.toString(calcStarX(starX)));
+					
+					System.out.println("Star Y: " + starY + "\nY coords" + Arrays.toString(calcStarY(starY)));
+					
+					g.fillPolygon(calcStarX(starX), calcStarY(starY), 5);
 					
 				}
 				
@@ -37,38 +42,52 @@ public class Star extends Flag {
 	
 	public int[] calcStarX(int i) {
 		
-		//Change to 10 indices
-		int[] x = new int[5];
+		double radius = 0.0308;
 		
-//		x[0] = (int) (K*Math.cos(18.0*Math.PI/180));
+		//Change to 10 indices
+		double[] x = new double[5];
+		
+		x[0] = (radius * Math.cos(18.0*Math.PI/180));
+	
+
 //		x[1] = (int) (K*Math.sin(18.0*Math.PI/180)*Math.cos(54.0*Math.PI/180)/(Math.sin(54.0*Math.PI/180)));
-//		x[2] = (int) 0;
-//		x[3] = -x[2];
-//		x[4] = -x[1];
+		//0.00952
+		
+		x[1] = ((1/Math.tan(18*Math.PI/180)) * 0.00952);
+		
+		x[2] = 0;
+		x[3] = -x[1];
+		x[4] = -x[0];
 
 				
 		
 //		//Test
-		x[0] = 0;
-		x[1] = 0;
-		x[2] = 1;
-		x[3] = 1;
-		x[4] = 1;
-		
+//		x[0] = 0;
+//		x[1] = 0;
+//		x[2] = 1;
+//		x[3] = 1;
+//		x[4] = 1;
+//		
 		
 		//Change to 10 indices
 		for(int n = 0; n <= 4; n++) {
-			x[n] *= i;
+			x[n] *= (radius * 1000) * i;
 			//System.out.println(x[n]);
 		}
+		
+		int[] finalArray = new int[5];
+		
+		for (int ii=0; ii<x.length; ii++)
+		    finalArray[ii] = (int) x[ii];
+		
 		//System.out.println(x);
-		return x;
+		return finalArray;
 	}
 	
 	public int[] calcStarY(int j) {
 		
 		//Change to 10 indices
-		int[] y = new int[10];
+		double[] y = new double[5];
 		
 //		y[0] = (int) (K*Math.sin(18.0*Math.PI/180));
 //		y[1] = y[1];
@@ -77,18 +96,25 @@ public class Star extends Flag {
 //		y[4] = y[1];
 		
 		//Test
-		y[0] = 0;
-		y[1] = 1;
-		y[2] = 1;
-		y[3] = 0;
-		y[4] = -1;
+		y[0] = 0.00952;
+		y[1] = 0.00952;
+		y[2] = 0.01;
+		y[3] = 0.00952;
+		y[4] = 0.00952;
 		
 		//Change to 10 indices
 		for(int n = 0; n <= 4; n++) {
-			y[n] *= j;
+			y[n] *= (0.0308 * 1000 * j);
 		}
 		
-		return y;
+		int[] finalArray = new int[5];
+		
+		for (int ii=0; ii<y.length; ii++)
+		    finalArray[ii] = (int) y[ii];
+		
+		//System.out.println(x);
+		return finalArray;
+	
 				
 	}
 	
