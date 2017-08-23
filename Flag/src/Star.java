@@ -32,9 +32,7 @@ public class Star extends Flag {
 					 * 
 					 *  ^ Might have to do this
 					 */
-					
-					System.out.println(starRadius);
-					
+	
 					newCalcStarX(25, starRadius);
 					
 					//g.fillPolygon(calcStarX(starX), calcStarY(starY), 5);
@@ -57,24 +55,62 @@ public class Star extends Flag {
 		unformatted[3] = -unformatted[1];
 		unformatted[4] = -unformatted[0];
 		
+		unformatted[5] = 0;
+		unformatted[6] = 0;
+		unformatted[7] = 0;
+		unformatted[8] = 0;
+		unformatted[9] = 0;
 		
 		for(int i = 0; i < unformatted.length; i++) {
 			unformatted[i] += xPos;
 		}
 		
-		System.out.println(Arrays.toString(unformatted));
+		int[] intArray = new int[5];
 		
+		//Convert to array of ints
+		intArray = doubleToInt(unformatted);
 		
-		return null;
+		return intArray;
 	}
 	
-	public int[] newCalcStarY(int yPos) {
+	public int[] newCalcStarY(int yPos, double radius) {
 		
+		double[] unformatted = new double[5];
 		
+		unformatted[0] = 0;
+		unformatted[1] = 0;
+		unformatted[2] = 0;
+		unformatted[3] = 0;
+		unformatted[4] = 0;
 		
-		return null;
+		unformatted[5] = 0;
+		unformatted[6] = 0;
+		unformatted[7] = 0;
+		unformatted[8] = 0;
+		unformatted[9] = 0;
+
+		for(int i = 0; i < unformatted.length; i++) {
+			unformatted[i] += yPos;
+		}
+		
+		int[] intArray = new int[5];
+		
+		intArray = doubleToInt(unformatted);
+		
+		return intArray;
 	}
 	
+	
+	public int[] doubleToInt(double[] doubleArray) {
+		
+		int[] intArray = new int[doubleArray.length];
+		
+		for(int i = 0; i < doubleArray.length; i++) {
+			intArray[i] = (int) doubleArray[i];
+		}
+		
+		return intArray;
+	}
 	
 	public int[] calcStarX(int i) {
 		
