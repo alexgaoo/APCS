@@ -33,7 +33,7 @@ public class Star extends Flag {
 					 *  ^ Might have to do this
 					 */
 	
-					newCalcStarX(25, starRadius);
+					newCalcStarX(40, starRadius);
 					
 					//g.fillPolygon(calcStarX(starX), calcStarY(starY), 5);
 					
@@ -47,7 +47,7 @@ public class Star extends Flag {
 	
 	public int[] newCalcStarX(int xPos, double radius) {
 		
-		double[] unformatted = new double[5];
+		double[] unformatted = new double[6];
 		
 		unformatted[0] = ((radius) * (Math.cos((Math.PI/180) * 18)));
 		unformatted[1] = (unformatted[0] * ((1)/(Math.tan((Math.PI * 54) / 180))));
@@ -55,20 +55,24 @@ public class Star extends Flag {
 		unformatted[3] = -unformatted[1];
 		unformatted[4] = -unformatted[0];
 		
-		unformatted[5] = 0;
+		unformatted[5] = ((radius) * (Math.cos((Math.PI/180) * 54)));
 		unformatted[6] = 0;
-		unformatted[7] = 0;
-		unformatted[8] = 0;
-		unformatted[9] = 0;
+		unformatted[7] = -unformatted[5];
+//		unformatted[8] = 0;
+		unformatted[9] = -unformatted[8];
 		
 		for(int i = 0; i < unformatted.length; i++) {
 			unformatted[i] += xPos;
 		}
 		
-		int[] intArray = new int[5];
+		int[] intArray = new int[6];
+		
 		
 		//Convert to array of ints
 		intArray = doubleToInt(unformatted);
+		
+		System.out.println(Arrays.toString(intArray));
+		
 		
 		return intArray;
 	}
@@ -77,17 +81,19 @@ public class Star extends Flag {
 		
 		double[] unformatted = new double[5];
 		
-		unformatted[0] = 0;
-		unformatted[1] = 0;
-		unformatted[2] = 0;
-		unformatted[3] = 0;
-		unformatted[4] = 0;
 		
-		unformatted[5] = 0;
-		unformatted[6] = 0;
-		unformatted[7] = 0;
-		unformatted[8] = 0;
-		unformatted[9] = 0;
+		// We need to do this
+		//unformatted[0] = 0;
+		unformatted[1] = unformatted[0];
+		unformatted[2] = radius;
+		unformatted[3] = unformatted[0];
+		unformatted[4] = unformatted[0];
+		
+//		unformatted[5] = 0;
+//		unformatted[6] = 0;
+//		unformatted[7] = unformatted[5];
+//		unformatted[8] = 0;
+//		unformatted[9] = unformatted[8];
 
 		for(int i = 0; i < unformatted.length; i++) {
 			unformatted[i] += yPos;
