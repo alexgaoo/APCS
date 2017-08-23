@@ -25,7 +25,7 @@ public class Star extends Flag {
 				int starY = (int) (((7./13.) * h) * j)/10;
 				
 				if((i % 2 == 1 && j % 2 == 1) || (i % 2 == 0 && j % 2 == 0)) {
-					g.fillRect((int) starX,(int) starY, 9, 9);
+					g.fillOval((int) starX,(int) starY, (int) starRadius, (int) starRadius);
 					
 					/*
 					 * https://stackoverflow.com/questions/15620590/polygons-with-double-coordinates
@@ -35,7 +35,7 @@ public class Star extends Flag {
 					
 					System.out.println(starRadius);
 					
-					//newCalcStarX(100, height, width);
+					newCalcStarX(25, starRadius);
 					
 					//g.fillPolygon(calcStarX(starX), calcStarY(starY), 5);
 					
@@ -47,7 +47,7 @@ public class Star extends Flag {
 		
 	}
 	
-	public int[] newCalcStarX(int xPos, int radius) {
+	public int[] newCalcStarX(int xPos, double radius) {
 		
 		double[] unformatted = new double[5];
 		
@@ -57,10 +57,12 @@ public class Star extends Flag {
 		unformatted[3] = -unformatted[1];
 		unformatted[4] = -unformatted[0];
 		
+		
+		for(int i = 0; i < unformatted.length; i++) {
+			unformatted[i] += xPos;
+		}
+		
 		System.out.println(Arrays.toString(unformatted));
-		
-		
-		
 		
 		
 		return null;
