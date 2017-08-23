@@ -32,8 +32,10 @@ public class Flag extends JApplet {
 	public final double L = 0.0769;  // Width of stripe
 	public int width;           // width of flag in pixels
 	public int height;          // height of flag in pixels
-	public final int IDEALWIDTH = 400 ;
-	public final int IDEALHEIGHT = 760;
+	//public final int IDEALWIDTH = 400 ;
+	//public final int IDEALHEIGHT = 760;
+	public double appletWidth;
+	public double appletHeight;
 	public int stripe_height;   // height of an individual stripe in pixels
 	
 //	public void makeGraphics() {
@@ -48,9 +50,20 @@ public class Flag extends JApplet {
 	}
 
 	public void paint(Graphics g) {
-		width = getWidth();
-		height = getHeight();
-
+		//width = getWidth();
+		//height = getHeight();
+		
+		//We should be doing something like this. This half-works - Ethan Shaotran
+		appletWidth = getWidth();
+		appletHeight = getHeight();
+		
+		if (appletWidth >= appletHeight * B) {
+			width = (int) (appletWidth * B);
+			height = (int) appletHeight;
+		} else {
+			height = (int) (appletWidth/B);
+			width= (int) appletWidth;
+		}
 		
 //		System.out.println(width + "," + height);
 //		System.out.println((width/height) == (int) 1.9);
