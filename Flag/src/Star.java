@@ -47,7 +47,7 @@ public class Star extends Flag {
 	
 	public int[] newCalcStarX(int xPos, double radius) {
 		
-		double[] unformatted = new double[6];
+		double[] unformatted = new double[10];
 		
 		unformatted[0] = ((radius) * (Math.cos((Math.PI/180) * 18)));
 		unformatted[1] = (unformatted[0] * ((1)/(Math.tan((Math.PI * 54) / 180))));
@@ -58,14 +58,15 @@ public class Star extends Flag {
 		unformatted[5] = ((radius) * (Math.cos((Math.PI/180) * 54)));
 		unformatted[6] = 0;
 		unformatted[7] = -unformatted[5];
-//		unformatted[8] = 0;
+		unformatted[8] = radius * Math.cos((Math.PI/180) * 18) * Math.sin((Math.PI/180) * 18) / Math.sin((Math.PI * 180) / 54);
+		
 		unformatted[9] = -unformatted[8];
 		
 		for(int i = 0; i < unformatted.length; i++) {
 			unformatted[i] += xPos;
 		}
 		
-		int[] intArray = new int[6];
+		int[] intArray = new int[10];
 		
 		
 		//Convert to array of ints
