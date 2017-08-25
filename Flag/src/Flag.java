@@ -50,19 +50,18 @@ public class Flag extends JApplet {
 	}
 
 	public void paint(Graphics g) {
-		//width = getWidth();
-		//height = getHeight();
+		width = getWidth();
+		height = getHeight();
 		
 		//We should be doing something like this. This half-works - Ethan Shaotran
-		appletWidth = getWidth();
-		appletHeight = getHeight();
+
 		
-		if (appletWidth >= appletHeight * B) {
-			width = (int) (appletWidth * B);
-			height = (int) appletHeight;
+		if (width >= height * B) {
+			width = (int) (height * B);
+			//height = (int) appletHeight;
 		} else {
-			height = (int) (appletWidth/B);
-			width= (int) appletWidth;
+			height = (int) (width/B);
+			//width= (int) appletWidth;
 		}
 		
 //		System.out.println(width + "," + height);
