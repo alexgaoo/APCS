@@ -23,27 +23,15 @@
 
 
 ;1.9
-;The first one is iterative (It creates a new call which can forget the old procedure that called it)
-;The second one is recursive (It has a + infront of the call, so it still relies on it)
 
-;1.10 -- ETHAN
-(define (A x y)
-  (cond ((= y 0) 0)
-        ((= x 0) (* 2 y))
-        ((= y 1) 2)
-        (else (A (- x 1)
-                 (A x (- y 1))))))
 
-(A 1 10)
+;1.10
 
-(A 2 4)
 
-(A 3 3)
+;1.14 -- ON PAPER
 
-;1.14 -- ON PAPER (HOUSTON)
 
-(A 0 2)
-;1.16 -- ALEX
+;1.16
 
 
 ;1.19 (EXTRA CREDIT)
