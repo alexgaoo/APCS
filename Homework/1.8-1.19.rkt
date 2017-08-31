@@ -49,7 +49,17 @@
 
 
 ;1.16 -- ALEX
+(define (exp-itr a b n)
+  (cond ((= n 0) a)
+        ((even? n) (exp-itr a (square b) (/ n 2)))
+        (else (exp-itr (* a b) b (- n 1)))))
 
+
+(define (even? n)
+  (= (remainder n 2) 0))
+
+(define (square x)
+  (* x x))
 
 ;1.19 (EXTRA CREDIT)
 
