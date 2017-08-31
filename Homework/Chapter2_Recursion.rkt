@@ -33,16 +33,21 @@
         ((= y 1) 2)
         (else (A (- x 1)
                  (A x (- y 1))))))
+;(trace A)
+;(A 1 10) --> Produces 1024
+;(A 2 4) --> 65536
+;(A 3 3) --> 65536
 
-(A 1 10)
+; (f n) --> 2n
+; (g n) --> 2^n
+; (h n) --> 2^(-2)^(n-1) if n%2==1 ---- Can't figure this out for the life of me
 
-(A 2 4)
 
-(A 3 3)
+
 
 ;1.14 -- ON PAPER (HOUSTON)
 
-(A 0 2)
+
 ;1.16 -- ALEX
 
 
