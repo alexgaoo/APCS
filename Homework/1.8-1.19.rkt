@@ -42,7 +42,7 @@
 ; (g n) --> 2^n
 ; (h n) --> 2^(-2)^(n-1) if n%2==1 ---- Can't figure this out for the life of me
 
-
+(define (h n) (A 2 n))
 
 
 ;1.14 -- ON PAPER (HOUSTON)
