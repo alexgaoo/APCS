@@ -97,7 +97,17 @@
 (cadadr (cadadr (cadadr '(1 (2 (3 (4 (5 (6 7)))))))))
 
 
- 
+;2.26
+;appends it
+;makes a pair of lists
+;'(() ())
+
+;2.27
+
+(define (deep-revh list)
+  (cond ((null? list) '())
+        ((list? (car list)) (reverse (cons (reverse (deep-rev (car list))) (deep-rev (cdr list)))))
+        (else (cons (car list) (deep-rev (cdr list))))
+   ))
 
 
-  
