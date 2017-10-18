@@ -30,3 +30,28 @@
 ;17.3
 ; Four procedures
 
+;7.8
+
+(define (member start list)
+  (if (= (length list) 0) #f
+      (if (eqv? (car list) start) list (member start (cdr list)))
+      )
+  )
+  
+;7.9
+
+
+(define (list-ref list index)
+  (if (> (+ 1 index) (length list)) #f
+      ;(member index list)
+      #t
+      
+  )
+)
+
+;> (list-ref '(happiness is a warm gun) 3)
+;WARM
+
+;7.10
+;7.11
+;7.12
