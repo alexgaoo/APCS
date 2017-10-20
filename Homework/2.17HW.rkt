@@ -104,10 +104,12 @@
 
 ;2.27
 
-(define (deep-revh list)
-  (cond ((null? list) '())
-        ((list? (car list)) (reverse (cons (reverse (deep-rev (car list))) (deep-rev (cdr list)))))
-        (else (cons (car list) (deep-rev (cdr list))))
-   ))
+(define (deep-rev list)
+  (deep-revh list 0 '()))
 
-
+(define (deep-revh list index end)
+  (cond ((= index (length list)) end)
+        ((list? (car list)) (append (deep-rev (car list))
+                                    (list (deep-rev (cdr list)))
+                             ))
+        (else (deep-rev list (+ index 1) (cons (list-ref list index) end)))))
