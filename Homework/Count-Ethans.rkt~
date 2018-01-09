@@ -1,0 +1,15 @@
+(define (count-Ethans struct) ;Takes in a tree at first, then structure
+  (cond ((null? struct) 0)
+        ((empty-twig? struct) 0)
+        ((ethan-twig? struct) 1)
+        ((tree? struct) (+ (count-Ethans (car struct)) (count-Ethans (cdr struct))))
+        ((branch? struct) (+ (count-Ethans (car struct)) (count-Ethans (cdr struct))))
+   ))
+
+(define branch? pair?)
+
+(define (empty-twig? struct) (equal? struct 'twig))
+
+(define (ethan-twig? struct) (equal? struct 'ethan))
+
+(define tree? list?)

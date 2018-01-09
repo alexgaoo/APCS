@@ -97,7 +97,19 @@
 (cadadr (cadadr (cadadr '(1 (2 (3 (4 (5 (6 7)))))))))
 
 
- 
+;2.26
+;appends it
+;makes a pair of lists
+;'(() ())
 
+;2.27
 
-  
+(define (deep-rev list)
+  (deep-revh list 0 '()))
+
+(define (deep-revh list index end)
+  (cond ((= index (length list)) end)
+        ((list? (car list)) (append (deep-rev (car list))
+                                    (list (deep-rev (cdr list)))
+                             ))
+        (else (deep-rev list (+ index 1) (cons (list-ref list index) end)))))

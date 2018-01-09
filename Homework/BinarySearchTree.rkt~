@@ -1,0 +1,48 @@
+;Ethan Shaotran
+;Binary Tree
+
+(define (make-bintree datum left right)
+  (lambda (msg)
+    (cond ((= msg 0) datum)
+          ((= msg 1) left)
+          ((= msg 2) right))))
+
+(define (datum bintree) (bintree 0))
+(define (left bintree) (bintree 1))
+(define (right bintree) (bintree 2))
+
+(define tet 'toasterhead)
+(define (empty-tree? tree) 
+  (eq? tree 'toasterhead))
+(define (leaf? bintree)
+  (and (not (empty-tree? bintree))
+       (empty-tree? (left bintree))
+       (empty-tree? (right bintree))))
+
+
+(define bst
+  (make-bintree 15
+     (make-bintree 6
+        (make-bintree 2 tet tet)
+        tet)
+     (make-bintree 22
+        (make-bintree 17
+           (make-bintree 16 tet tet)
+           (make-bintree 19 tet tet))
+        (make-bintree 24 tet tet))))
+
+;contains? bst => bool
+(define (contains? bt x)
+  (cond ((= ((datum bt) 0) x) #t)
+        ((empty-tree? bt) #f)
+        ((> ((datum bt) 0) x) (or #f (contains? (right bt) x)))
+        ((< ((datum bt) 0) x) (or #f (contains? (left bt) x)))
+   ))
+
+;inorder, bst => list
+
+
+;square-tree => bst => bst
+
+
+
