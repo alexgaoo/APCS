@@ -27,8 +27,50 @@ public class BST<T extends Comparable<T>> {
 		right = new BST<T>(datum);
 	}
 	
+	public int depth() {
+	    
+	    int leftdepth = 0;
+	    int rightdepth = 0;
+	    
+	    if(getLeft() != null) {
+		leftdepth += getLeft().depth();
+	    }
+	    else if(getRight() != null) {
+		rightdepth += getRight().depth();
+	    }
+	    
+	    int max = Math.max(leftdepth, rightdepth);
+	    
+	    return 1 + max;
+	    
+	}
+
 	public void insert(T datum) {
-		// YOUR_CODE_HERE
+	
+	    
+	    if(datum.compareTo(this.datum) == 1) {
+		
+		if(getRight() == null) {
+		    setRight(datum);
+		    return;
+		} else {
+		    getRight().insert(datum);
+		}
+		
+	    }
+	    
+	    else if(datum.compareTo(this.datum) == -1) {
+		
+		if(getLeft() == null) {
+		    setLeft(datum);
+		    return;
+		} else {
+		    getLeft().insert(datum);
+		}
+		
+	    }
+		    
+	    
 	}
 	
 	public String toString() {
