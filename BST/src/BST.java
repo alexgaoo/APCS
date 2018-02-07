@@ -33,10 +33,10 @@ public class BST<T extends Comparable<T>> {
 	    int rightdepth = 0;
 	    
 	    if(getLeft() != null) {
-		leftdepth += getLeft().depth();
+		leftdepth = getLeft().depth();
 	    }
 	    else if(getRight() != null) {
-		rightdepth += getRight().depth();
+		rightdepth = getRight().depth();
 	    }
 	    
 	    int max = Math.max(leftdepth, rightdepth);
